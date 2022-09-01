@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectRotator : MonoBehaviour
+public class RotateAroundSun : MonoBehaviour
 {
-    public float orbitSpeed;
-
     // Start is called before the first frame update
+    public float rotationSpeed;
+    public GameObject pivot;
     void Start()
     {
         
@@ -15,6 +15,6 @@ public class ObjectRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3 (0, orbitSpeed, 0) * Time.deltaTime);
+        transform.RotateAround(pivot.transform.position, new Vector3(0,1,0), rotationSpeed * Time.deltaTime);
     }
 }
